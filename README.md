@@ -2,7 +2,8 @@
 
 ### 0. 구글 스프레드시트에 접근하기 위해 필요한 것.
 
- - client
+ - client_secret.json
+ - spread sheet id
 
 
 ### 1. 구글 계정에서 설정이 필요하다.
