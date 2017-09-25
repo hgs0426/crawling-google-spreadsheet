@@ -157,10 +157,22 @@ range: 'Class Data!A1:E4',
 
 부분이 있다. 여기서 rows가 스프레드 시트의 본문을 받아오는 부분이다. rows는 배열로 받아오는데, 위의 코드와 같이 json으로 유용하게 바꿀 수 있다.
 
+### 4. 실행
 
+```shell
+node quickstart.js
+```
+최초실행시, 추가 인증이 필요하다. 콘솔에 url주소가 뜨는데, 인증하기 위해서, 콘솔에 나온 브라우저에 url주소로 이동한다. 
 
+![shell result](./img/url.PNG)
 
-### 결과
+이동하면 로그인해라고 한다. 로그인 후, 아래 그림과 같이 코드를 볼 수 있다. 코드를 복사해서 콘솔에 그대로 입력한다.
+
+![shell result](./img/code.PNG)
+
+아마 성공할 것이다.
+
+### 5. 결과
 
 아래와 같은 구글 스프레드시트에서 데이터를 가져올 것이다.
 
@@ -169,5 +181,5 @@ range: 'Class Data!A1:E4',
 
 ![shell result](./img/shellresult.PNG)
 
-### 참고
+### 6. 참고
 [1] https://developers.google.com/sheets/api/quickstart/nodejs
