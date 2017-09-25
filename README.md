@@ -40,7 +40,7 @@
 
  다음은 구글 API Quick 예제에서 제공하는 소스코드 중 수정해야 할 부분을 설명한다. 전체 코드를 보고 싶다면 아래 참고에서 사용하길 바란다. 
 
-``` javascript
+```javascript
 
 // Load client secrets from a local file.
 fs.readFile('client_secret.json', function processClientSecrets(err, content) {
@@ -55,6 +55,108 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
 
 ``` 
 위의 코드에서 **'client_secret.json'**을 볼 수 있다. 아까 1에서 json 키 파일의 이름을 바꿨는데, 그 이름이랑 일치해야 한다.
+
+
+```javascript
+
+function listMajors(auth) {
+  var sheets = google.sheets('v4');
+  sheets.spreadsheets.values.get({
+    auth: auth,
+    spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+    range: 'Class Data!A2:E',
+  }, function(err, response) {
+    if (err) {
+      console.log('The API returned an error: ' + err);
+      return;
+    }
+    var rows = response.values;
+    if (rows.length == 0) {
+      console.log('No data found.');
+    } else {
+     
+      let result = {
+      tableName: rows[0][0],
+      jan: {
+        companyA: rows[1][1],
+        conpanyB: rows[2][1],
+        total: rows[3][1]
+      },
+      feb: {
+        companyA: rows[1][2],
+        conpanyB: rows[2][2],
+        total: rows[3][2]
+      },
+      mar: {
+        companyA: rows[1][3],
+        conpanyB: rows[2][3],
+        total: rows[3][3]
+      },
+      apr: {
+        companyA: rows[1][4],
+        conpanyB: rows[2][4],
+        total: rows[3][4]
+      }
+    };
+
+    console.log('result:',result);
+    }
+  });
+}
+
+```
+위에서, 
+
+```javascript
+spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms'
+```
+가 있다. 이것을 구글 스프레드시트 id 값에 맞게 넣어준다. 참고로, 구글 스프레드시트를 실행시켰을때,<br/>
+https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit<br/>
+주소창에 위와 같은 주소를 볼 수 있을 것이다. 여기서 중앙에 알아보기 힘든 문자열이 스프레드시트 id이다.
+
+```javascript
+range: 'Class Data!A1:E4',
+```
+는 스프레드시트를 읽을 범위이다.
+그리고,
+
+```javascript
+ var rows = response.values;
+    if (rows.length == 0) {
+      console.log('No data found.');
+    } else {
+      console.log('Name, Major:');
+      let result = {
+      tableName: rows[0][0],
+      jan: {
+        companyA: rows[1][1],
+        conpanyB: rows[2][1],
+        total: rows[3][1]
+      },
+      feb: {
+        companyA: rows[1][2],
+        conpanyB: rows[2][2],
+        total: rows[3][2]
+      },
+      mar: {
+        companyA: rows[1][3],
+        conpanyB: rows[2][3],
+        total: rows[3][3]
+      },
+      apr: {
+        companyA: rows[1][4],
+        conpanyB: rows[2][4],
+        total: rows[3][4]
+      }
+    };
+
+    console.log('result:',result);
+    }
+```
+
+부분이 있다. 여기서 rows가 스프레드 시트의 본문을 받아오는 부분이다. rows는 배열로 받아오는데, 위의 코드와 같이 json으로 유용하게 바꿀 수 있다.
+
+
 
 
 ### 결과
