@@ -1,4 +1,3 @@
-
 var fs = require('fs');
 var readline = require('readline');
 var google = require('googleapis');
@@ -117,18 +116,6 @@ function listMajors(auth) {
       console.log('No data found.');
     } else {
 
-        
-
-    //  let result = {
-    //      tableName: '월간 판매량',
-    //      jan: {
-    //          companyA:3,
-    //          cpmpanyB:20,
-    //          total:23
-    //      },
-    //      ...
-    //  };
-
     let result = {
       tableName: rows[0][0],
       jan: {
@@ -155,13 +142,6 @@ function listMajors(auth) {
 
     console.log('result:',result);
 
-    //   console.log('Name, Major:');
-    //   for (var i = 0; i < rows.length; i++) {
-        // var row = rows[i];
-        // Print columns A and E, which correspond to indices 0 and 4.
-        // console.log('%s, %s', row[0], row[4]);
-
-    //   }
     }
   });
 }
