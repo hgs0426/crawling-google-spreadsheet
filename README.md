@@ -164,11 +164,11 @@ node quickstart.js
 ```
 최초실행시, 추가 인증이 필요하다. 콘솔에 url주소가 뜨는데, 인증하기 위해서, 콘솔에 나온 브라우저에 url주소로 이동한다. 
 
-![shell result](./img/url.PNG)
+![url](./img/url.PNG)
 
 이동하면 로그인해라고 한다. 로그인 후, 아래 그림과 같이 코드를 볼 수 있다. 코드를 복사해서 콘솔에 그대로 입력한다.
 
-![shell result](./img/code.PNG)
+![code](./img/code.png)
 
 아마 성공할 것이다.
 
